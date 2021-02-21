@@ -1,29 +1,35 @@
-import Vue from "vue";
-import Router from "vue-router";
+import Vue from 'vue'
+import Router from 'vue-router'
+import Login from '../components/Login.vue'
+import Home from '../components/Home.vue'
+import Welcome from '../components/Welcome.vue'
+import Users from '../components/user/Users.vue'
 
-import Login from "../components/Login.vue";
-import Home from "../components/Home.vue";
-
-Vue.use(Router);
+Vue.use(Router)
 
 const router = new Router({
   routes: [
     {
-      path: "/",
-      redirrect: "/login"
+      path: '/',
+      redirrect: '/login'
     },
     {
-      path: "/login",
-      name: "Login",
+      path: '/login',
+      name: 'Login',
       component: Login
     },
     {
-      path: "/home",
-      name: "Home",
-      component: Home
+      path: '/home',
+      name: 'Home',
+      component: Home,
+      redirect: '/welcome',
+      children: [
+        { path: '/welcome', name: 'Welcome', component: Welcome },
+        { path: '/users', name: 'Users', component: Users }
+      ]
     }
   ]
-});
+})
 
 // router.beforeEach((to, from, next) => {
 //   if (to.path === "/login") return next();
@@ -32,4 +38,4 @@ const router = new Router({
 //   next();
 // });
 
-export default router;
+export default router
