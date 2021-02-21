@@ -40,53 +40,53 @@
 
 <script>
 export default {
-  name: "Logo",
+  name: 'Logo',
   data() {
     return {
       loginForm: {
-        username: "",
-        password: "",
+        username: '',
+        password: ''
       },
       // 表单的验证规则
       loginFormRules: {
         username: [
-          { required: true, message: "请输入登录名称", trigger: "blur" },
+          { required: true, message: '请输入登录名称', trigger: 'blur' },
           {
             min: 3,
             max: 10,
-            message: "长度在 3 到 10 个字符",
-            trigger: "blur",
-          },
+            message: '长度在 3 到 10 个字符',
+            trigger: 'blur'
+          }
         ],
         password: [
-          { required: true, message: "请输入登录密码", trigger: "blur" },
+          { required: true, message: '请输入登录密码', trigger: 'blur' },
           {
             min: 1,
             max: 10,
-            message: "长度在 1 到 10 个字符",
-            trigger: "blur",
-          },
-        ],
-      },
-    };
+            message: '长度在 1 到 10 个字符',
+            trigger: 'blur'
+          }
+        ]
+      }
+    }
   },
   methods: {
     resetLoginForm() {
-      this.$refs.loginFormRef.resetFields();
+      this.$refs.loginFormRef.resetFields()
     },
     login() {
-      this.$refs.loginFormRef.validate(async (vaild) => {
-        if (!vaild) return;
-        const { data: res } = await this.$http.post("login", this.loginForm);
-        if (res.meta.status !== 200) return this.$message.error("登录失败");
-        this.$message.success("登录成功");
-        console.log(res);
-        window.sessionStorage.setItem("token",res.data.token)
-        this.$router.push("/home")
-      });
-    },
-  },
-};
+      this.$refs.loginFormRef.validate(async vaild => {
+        if (!vaild) return
+        const { data: res } = await this.$http.post('login', this.loginForm)
+        if (res.meta.status !== 200) return this.$message.error('登录失败')
+        this.$message.success('登录成功')
+        console.log(res)
+        window.sessionStorage.setItem('token', res.data.token)
+        this.$router.push('/home')
+      })
+    }
+  }
+}
 </script>
 
 <style lang="css" scoped>

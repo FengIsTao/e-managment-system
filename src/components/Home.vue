@@ -6,16 +6,14 @@
 
 <script>
 export default {
-name:'Home',
-methods:{
-  logout(){
-    window.sessionStorage.clear()
-    this.$router.push('/login')
+  name: 'Home',
+  methods: {
+    logout() {
+      window.sessionStorage.clear()
+      this.$router.push('/login')
+    }
   }
-}
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
