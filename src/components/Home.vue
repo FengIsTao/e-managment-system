@@ -80,12 +80,12 @@ export default {
       //默认不折叠
       isCollapse: false,
       //被激活的链接地址
-      activePath:''
+      activePath: '',
     }
   },
   created() {
     this.getMeunList(),
-    this.activePath=window.sessionStorage.getItem('activePath')
+      (this.activePath = window.sessionStorage.getItem('activePath'))
   },
   methods: {
     logout() {
@@ -95,9 +95,10 @@ export default {
     //获取所有的菜单列表
     async getMeunList() {
       const { data: res } = await this.$http.get('menus')
-      if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
+      if (res.meta.status !== 200) {
+        return this.$message.error(res.meta.msg)
+      }
       this.menuList = res.data
-      console.log(res)
     },
     // 点击按钮，切换菜单的折叠和展开
     toggleCollapse() {
@@ -105,8 +106,8 @@ export default {
     },
     //保存链接的激活状态
     saveNavState(activePath) {
-      window.sessionStorage.setItem('activePath',activePath)
-      this.activePath=activePath
+      window.sessionStorage.setItem('activePath', activePath)
+      this.activePath = activePath
     },
   },
 }
