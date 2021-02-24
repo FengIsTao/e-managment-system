@@ -10,7 +10,8 @@ import axios from 'axios'
 import TreeTable from 'vue-table-with-tree-grid'
 
 // axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1'
-axios.defaults.baseURL='https://www.fastmock.site/mock/2750ea48627b1adf42d518cd6a0a7379/api/private/v1'
+// axios.defaults.baseURL='https://www.fastmock.site/mock/2750ea48627b1adf42d518cd6a0a7379/api/private/v1'
+axios.defaults.baseURL='https://www.fastmock.site/mock/2750ea48627b1adf42d518cd6a0a7379/api/'
 
 axios.interceptors.request.use(config => {
   console.log(config)

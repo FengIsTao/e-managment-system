@@ -1,0 +1,13 @@
+{
+  "data": {
+    "attr_id": 9,
+    "attr_name": "测试更新，
+    "cat_id": "43",
+    "attr_sel": "only",
+    "attr_write": "manual",
+    "attr_vals": "abc"
+  },
+  "meta": {
+    "msg": "获取成功",
+    "status": 201
+  }
