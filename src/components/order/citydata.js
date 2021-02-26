@@ -1,4 +1,4 @@
-export const cityData= {
+const cityData= {
   province_list: {
     110000: '北京市',
     120000: '天津市',
@@ -3800,3 +3800,4 @@ export const cityData= {
     820204: '圣方济各堂区',
   },
 };
+export default cityData
