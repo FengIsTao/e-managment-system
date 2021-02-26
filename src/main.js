@@ -8,6 +8,10 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/global.css'
 import axios from 'axios'
 import TreeTable from 'vue-table-with-tree-grid'
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.core.css' // import styles
+import 'quill/dist/quill.snow.css' // for snow theme
+import 'quill/dist/quill.bubble.css' // for bubble theme
 
 // axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1'
 // axios.defaults.baseURL='https://www.fastmock.site/mock/2750ea48627b1adf42d518cd6a0a7379/api/private/v1'
@@ -25,6 +29,7 @@ Vue.prototype.$http = axios
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.component('tree-table', TreeTable)
+Vue.use(VueQuillEditor)
 
 //自定义格式化时间处理的全局过滤器
 Vue.filter('dataFormat', function(originVal) {
