@@ -12,15 +12,24 @@ import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.core.css' // import styles
 import 'quill/dist/quill.snow.css' // for snow theme
 import 'quill/dist/quill.bubble.css' // for bubble theme
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 // axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1'
 // axios.defaults.baseURL='https://www.fastmock.site/mock/2750ea48627b1adf42d518cd6a0a7379/api/private/v1'
-axios.defaults.baseURL =
-  'https://www.fastmock.site/mock/2750ea48627b1adf42d518cd6a0a7379/api/'
+axios.defaults.baseURL = 'https://www.fastmock.site/mock/2750ea48627b1adf42d518cd6a0a7379/api/'
 
+//在request中展示进度条
 axios.interceptors.request.use(config => {
+  NProgress.start()
   console.log(config)
   config.headers.Authorization = window.sessionStorage.getItem('token')
+  return config
+})
+
+//在response中隐藏进度条
+axios.interceptors.response.use(config => {
+  NProgress.done()
   return config
 })
 
